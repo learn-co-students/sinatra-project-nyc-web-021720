@@ -1,4 +1,4 @@
-class Review < ActiveRecord::Base
+class WaitingList < ActiveRecord::Base
 belongs_to :review 
 belongs_to :user 
 end
