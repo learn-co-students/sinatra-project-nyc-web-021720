@@ -1,0 +1,2 @@
+r1 = Restaurant.create(name: "Fuck", city: "New York", cuisine: "Balls", rating: 69, address: "10 3rd Street")
+r2 = Restaurant.create(name: "McD's", city: "Charlotte", cuisine: "Fast Food", rating: 5, address: "17 2nd Avenue")
