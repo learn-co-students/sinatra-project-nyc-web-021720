@@ -1,6 +1,8 @@
 require 'bundler/setup'
 require_relative 'api_key'
 
+
+
 Bundler.require
 
 require_all('app/')
