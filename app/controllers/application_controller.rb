@@ -37,21 +37,22 @@ class ApplicationController < Sinatra::Base
 
   post "/restaurants" do
     rest_params = params["rest"]
+    binding.pry
     rest = Restaurant.create(rest_params)
     redirect "/restaurants/#{rest.id}"
   end
 
   get "/restaurants/:id" do
     # needs a dropdown for users who aren't on waiting list already
-    @rest = Restaurant.find(param["id"])
+    @rest = Restaurant.find(params["id"])
     erb :"restaurants/show"
   end
 
   # I think this makes the most sense
   # as we are creating a new record
   post "/restaurants/:id/add_user" do
-    user_id = param["user_id"]
-    rest_id = param["id"]
+    user_id = params["user_id"]
+    rest_id = params["id"]
 
     WaitingList.create(user_id: user_id, restarant_id: rest_id)
     redirect "restaurants/#{rest_id}"
