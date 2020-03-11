@@ -1,4 +1,4 @@
 class WaitingList < ActiveRecord::Base
-belongs_to :review 
-belongs_to :user 
+    belongs_to :restaurant 
+    belongs_to :user 
 end

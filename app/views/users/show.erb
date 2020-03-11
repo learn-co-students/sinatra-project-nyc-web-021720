@@ -1,3 +1,10 @@
 <h2> User Details </h2>
 
 <p>Name: <%= @user.name %></p>
+
+Waiting on Restaurants
+<ul>
+<% @user.restaurants.each do |rest| %>
+    <li><%= rest.name %></li>
+<% end %>
+</ul>

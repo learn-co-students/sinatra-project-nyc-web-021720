@@ -45,6 +45,9 @@ class ApplicationController < Sinatra::Base
   get "/restaurants/:id" do
     # needs a dropdown for users who aren't on waiting list already
     @rest = Restaurant.find(params["id"])
+    @not_waiting = User.all.select do |user|
+      !user.restaurants.include?(@rest)
+    end
     erb :"restaurants/show"
   end
 
@@ -54,7 +57,7 @@ class ApplicationController < Sinatra::Base
     user_id = params["user_id"]
     rest_id = params["id"]
 
-    WaitingList.create(user_id: user_id, restarant_id: rest_id)
+    WaitingList.create(user_id: user_id, restaurant_id: rest_id)
     redirect "restaurants/#{rest_id}"
   end
 

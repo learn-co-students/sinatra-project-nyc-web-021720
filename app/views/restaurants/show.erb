@@ -3,3 +3,21 @@
 <p>Name: <%= @rest.name %></p>
 <p>Rating: <%= @rest.rating %></p>
 <p>Address: <%= @rest.address %></p>
+
+Users in Waiting:
+<ul>
+<% @rest.users.each do |user| %>
+    <li><%= user.name %></li>
+<% end %>
+</ul>
+
+Add More Users:
+<form method="POST" action="/restaurants/<%= @rest.id %>/add_user">
+    <label for="not_waiting">Users yet to add: </label>
+    <select id="not_waiting" name="user_id">
+        <% @not_waiting.each do |user| %>
+            <option value="<%= user.id %>"><%= user.name %></option>
+        <% end %>
+    </select>
+    <input type="submit" value="Submit">
+</form>
